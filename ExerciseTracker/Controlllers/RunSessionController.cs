@@ -1,4 +1,5 @@
-﻿using ExerciseTracker.Repositories;
+﻿using ExerciseTracker.Models;
+using ExerciseTracker.Repositories;
 using ExerciseTracker.Services;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,12 @@ internal class RunSessionController
 
         if (_repository.Add(session) == 0)
         {
-            throw new Exception();
+            Console.WriteLine("Something went wrong");
         }
+    }
+
+    public void UpdateSession(RunSession session)
+    {
+        var updatedSession = _service.UpdateSession(session);
     }
 }
