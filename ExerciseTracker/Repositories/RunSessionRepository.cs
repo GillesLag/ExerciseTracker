@@ -14,4 +14,9 @@ internal class RunSessionRepository : Repository<RunSession>, IRunSessionReposit
     {
         return _context.RunSessions.Find(id);
     }
+
+    public bool SessionExists(int id)
+    {
+        return _context.RunSessions.Any(session => session.Id == id);
+    }
 }

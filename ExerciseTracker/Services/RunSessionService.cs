@@ -10,11 +10,6 @@ namespace ExerciseTracker.Services;
 
 internal class RunSessionService
 {
-    private readonly IRunSessionRepository _runSessionRepository;
-    public RunSessionService(IRunSessionRepository repository)
-    {
-        _runSessionRepository = repository;
-    }
     public RunSession CreateSession(DateTime start, DateTime end, int distanceInMeters)
     {
         var session = new RunSession()
@@ -26,13 +21,5 @@ internal class RunSessionService
         };
 
         return session;
-    }
-
-    public RunSession UpdateSession(RunSession session)
-    {
-        var existingSession = _runSessionRepository.GetById(session.Id);
-        ArgumentNullException.ThrowIfNull(existingSession, nameof(session));
-
-        return existingSession;
     }
 }
